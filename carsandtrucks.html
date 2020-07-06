@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+  
+<script>
+class Car {
+  constructor(name) {
+    this.brand = name;
+  }
+
+  present() {
+    return 'I have a ' + this.brand;
+  }
+}
+
+class Model extends Car {
+  constructor(name, mod) {
+    super(name);
+    this.model = mod;
+  }  
+  show() {
+    return this.present() + ', it is a ' + this.model
+  }
+}
+
+class Semi extends Car {
+	constructor(name, wheels, trailer) {
+    	super(name);
+        this.wheels = wheels;
+        this.trailer = trailer;
+        if (wheels == 2 && trailer == false) {
+        	this.semi = ' Semi truck, trailer unattached.';
+        } else if (wheels > 9 && trailer==true) {
+        	this.semi = ' Semi truck, trailer on.';
+        } else {
+        	this.semi = ' pickup. It is not a Semi truck.';
+        }
+    }
+    show() {
+    	return this.present() + ' ' + this.semi
+    }
+}
+
+mycar = new Model("Ford", "Mustang");
+document.write(mycar.show() + '<br/><p/>');
+
+myTruck = new Semi("Peterbilt", 18, true);
+document.write(myTruck.show() + '<br/><p/>');
+
+myTruck2 = new Semi("Mack", 2, false);
+document.write(myTruck2.show() + '<br/><p/>');
+
+myTruck3 = new Semi("Datsun", 4, true);
+document.write(myTruck3.show() + '<br/><p/>');
+</script>
+
+</body>
+</html>
